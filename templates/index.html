@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="background-shape shape1"></div>
+    <div class="background-shape shape2"></div>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+                <h1>AI Resume Analyzer</h1>
+
+                <p>
+                    Analyze your resume and discover how well it matches your dream job.
+                </p>
+            </div>
+
+        </div>
+
+
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+
+
+            <!-- Resume Upload -->
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-file-arrow-up"></i>
+                    Upload Resume
+                </label>
+
+                <div class="upload-box">
+
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+                    <p>Upload your Resume</p>
+
+                    <span>PDF format only</span>
+
+                    <input
+                        type="file"
+                        name="resume"
+                        accept=".pdf"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Job Description -->
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-briefcase"></i>
+                    Job Description
+                </label>
+
+                <textarea
+                    name="job_description" 
+                    id="job_description"
+                    rows="10"
+                    >We are looking for an Artificial Intelligence and Machine Learning Intern.
+                    
+                    Required Skills:
+                    Python
+                    SQL
+                    Machine Learning
+                    Deep Learning
+                    Artificial Intelligence
+                    Data Structures
+                    Computer Vision
+                    Natural Language Processing
+                    Flask
+
+                    Preferred Skills:
+                    Java
+                    Data Science
+                    Neural Networks
+
+                    Responsibilities:
+                    Develop machine learning models.
+                    Work with Python and data analysis.
+                    Build AI-based applications.
+Develop and maintain web applications.
+
+                ></textarea>
+
+            </div>
+
+
+            <!-- Button -->
+
+            <button type="submit">
+
+                Analyze Resume
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+        </form>
+
+
+        <div class="features">
+
+            <div>
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <span>Skill Matching</span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>ATS Score</span>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <span>Smart Feedback</span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>

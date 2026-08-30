@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analysis Result</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="result-container">
+
+
+        <!-- Header -->
+
+        <div class="result-header">
+
+            <div class="result-logo">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+
+                <h1>Resume Analysis Complete</h1>
+
+                <p>
+                    Here is how your resume matches the job requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Resume Name -->
+
+        <div class="file-info">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <span>{{ filename }}</span>
+
+        </div>
+
+
+        <!-- Score Section -->
+
+        <div class="score-card">
+
+            <h2>Resume Match Score</h2>
+
+            <div class="score-circle">
+
+                <span>{{ score }}%</span>
+
+            </div>
+
+            <p>
+                Your resume matches the skills detected in the job description.
+            </p>
+
+        </div>
+
+
+        <!-- Skills Grid -->
+
+        <div class="skills-grid">
+
+
+            <!-- Matched Skills -->
+
+            <div class="skills-card matched-card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <h2>Matched Skills</h2>
+
+                </div>
+
+
+                {% if matched_skills %}
+
+                    <div class="skill-list">
+
+                        {% for skill in matched_skills %}
+
+                            <span class="skill matched">
+
+                                <i class="fa-solid fa-check"></i>
+
+                                {{ skill }}
+
+                            </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+
+                    <p class="empty-message">
+
+                        No matching skills found.
+
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- Missing Skills -->
+
+            <div class="skills-card missing-card">
+
+                <div class="card-title">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                    <h2>Missing Skills</h2>
+
+                </div>
+
+
+                {% if missing_skills %}
+
+                    <div class="skill-list">
+
+                        {% for skill in missing_skills %}
+
+                            <span class="skill missing">
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                {{ skill }}
+
+                            </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+
+                    <p class="empty-message">
+
+                        Excellent! No important skills are missing.
+
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Resume Preview -->
+
+        <div class="resume-preview">
+
+            <div class="preview-title">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                <h2>Extracted Resume Text</h2>
+
+            </div>
+
+            <div class="resume-text">
+
+                {{ resume_text }}
+
+            </div>
+
+        </div>
+
+
+        <!-- Back Button -->
+
+        <a href="/" class="analyze-again">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Analyze Another Resume
+
+        </a>
+
+
+    </div>
+
+</body>
+
+</html>
